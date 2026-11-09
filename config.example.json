@@ -1,0 +1,15 @@
+{
+  "name": "Alex",
+  "port": 47613,
+  "tickers": [
+    { "symbol": "AAPL", "label": "AAPL", "name": "Apple" },
+    { "symbol": "MSFT", "label": "MSFT", "name": "Microsoft" },
+    { "symbol": "^GSPC", "label": "SPX", "name": "S&P 500" },
+    { "symbol": "VTI", "label": "VTI", "name": "Vanguard Total Market" }
+  ],
+  "weather": {
+    "place": "San Francisco, CA",
+    "units": "fahrenheit"
+  },
+  "ical_url": ""
+}

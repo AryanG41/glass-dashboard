@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1b5c"/>
+      <stop offset="1" stop-color="#0d1840"/>
+    </linearGradient>
+    <radialGradient id="pink" cx=".22" cy=".2" r=".6">
+      <stop offset="0" stop-color="#ff6fa8"/><stop offset="1" stop-color="#ff6fa8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" cx=".85" cy=".9" r=".6">
+      <stop offset="0" stop-color="#2fb4ff"/><stop offset="1" stop-color="#2fb4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amber" cx=".9" cy=".15" r=".45">
+      <stop offset="0" stop-color="#ff9f5a" stop-opacity=".9"/><stop offset="1" stop-color="#ff9f5a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".42"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity=".10"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".95"/>
+      <stop offset=".4" stop-color="#fff" stop-opacity=".1"/>
+      <stop offset=".75" stop-color="#fff" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".6"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8ff5c4" stop-opacity=".55"/><stop offset="1" stop-color="#8ff5c4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+    <clipPath id="tile"><rect x="8" y="8" width="240" height="240" rx="58"/></clipPath>
+    <clipPath id="disc"><circle cx="128" cy="128" r="78"/></clipPath>
+  </defs>
+
+  <!-- tile with colour blobs -->
+  <g clip-path="url(#tile)">
+    <rect width="256" height="256" fill="url(#bg)"/>
+    <rect width="256" height="256" fill="url(#pink)"/>
+    <rect width="256" height="256" fill="url(#blue)"/>
+    <rect width="256" height="256" fill="url(#amber)"/>
+  </g>
+  <rect x="8.75" y="8.75" width="238.5" height="238.5" rx="57.5" fill="none" stroke="url(#rim)" stroke-width="1.5" opacity=".7"/>
+
+  <!-- glass disc -->
+  <circle cx="128" cy="136" r="78" fill="#000" opacity=".28" filter="url(#soft)"/>
+  <circle cx="128" cy="128" r="78" fill="url(#glass)"/>
+  <!-- rising sparkline inside the disc -->
+  <g clip-path="url(#disc)">
+    <path d="M44 176 L78 162 L100 170 L126 146 L150 154 L176 122 L212 110 L212 220 L44 220 Z" fill="url(#spark)"/>
+    <polyline points="44,176 78,162 100,170 126,146 150,154 176,122 212,110" fill="none" stroke="#8ff5c4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".95"/>
+  </g>
+  <circle cx="128" cy="128" r="77.25" fill="none" stroke="url(#rim)" stroke-width="2.5"/>
+  <ellipse cx="104" cy="82" rx="42" ry="16" fill="#fff" opacity=".22" transform="rotate(-28 104 82)"/>
+
+  <!-- clock hands -->
+  <g stroke="#fff" stroke-linecap="round">
+    <line x1="128" y1="128" x2="128" y2="80" stroke-width="9"/>
+    <line x1="128" y1="128" x2="160" y2="146" stroke-width="9"/>
+  </g>
+  <circle cx="128" cy="128" r="9" fill="#fff"/>
+  <!-- live dot at end of sparkline -->
+  <circle cx="190" cy="116" r="12" fill="#8ff5c4" opacity=".6" filter="url(#glow)"/>
+  <circle cx="190" cy="116" r="7.5" fill="#fff"/>
+</svg>

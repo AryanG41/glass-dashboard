@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass</title>
+  <!-- Edge/Chrome app windows paint their title bar with this colour (updated by app.js per time of day) -->
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <meta name="theme-color" content="#1b1440" id="theme-color" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-period="evening">
+  <!-- Ambient background: drifting colour blobs the glass refracts -->
+  <div class="ambient" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="blob b4"></span>
+    <div class="grain"></div>
+  </div>
+
+  <main class="layout">
+    <section class="glass hero" aria-label="Clock">
+      <p class="greeting" id="greeting">Good evening</p>
+      <div class="clock">
+        <span id="time" class="time">--:--</span>
+        <span class="clock-side">
+          <span id="ampm" class="ampm"></span>
+          <span id="seconds" class="seconds"></span>
+        </span>
+      </div>
+      <p class="date" id="date"></p>
+      <p class="sub" id="day-note"></p>
+    </section>
+
+    <div class="side">
+      <section class="glass weather" aria-label="Weather">
+        <header class="card-head">
+          <h2 id="wx-place">Weather</h2>
+          <div class="seg" role="tablist" aria-label="Hourly view">
+            <button role="tab" data-mode="temp" aria-selected="true">Temp</button>
+            <button role="tab" data-mode="rain" aria-selected="false">Rain</button>
+            <button role="tab" data-mode="wind" aria-selected="false">Wind</button>
+            <button role="tab" data-mode="humid" aria-selected="false">Humidity</button>
+          </div>
+        </header>
+        <div class="wx-now" id="wx-now"></div>
+        <ol class="hourly" id="wx-hourly"></ol>
+      </section>
+
+      <section class="glass calendar" aria-label="Today's calendar">
+        <header class="card-head">
+          <h2>Today</h2>
+          <div class="head-right">
+            <span class="pill" id="cal-count"></span>
+            <button class="pill-btn" id="open-month" type="button" aria-haspopup="dialog">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 6h13M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Month
+            </button>
+          </div>
+        </header>
+        <ol class="events" id="events"></ol>
+      </section>
+    </div>
+
+    <section class="stocks" id="stocks" aria-label="Markets"></section>
+  </main>
+
+  <footer class="status" id="status"></footer>
+
+  <!-- Month view (opens from the calendar card) -->
+  <div class="month-overlay" id="month-overlay" hidden>
+    <section class="glass month-panel" role="dialog" aria-modal="true" aria-labelledby="month-title">
+      <div class="month-main">
+        <header class="month-head">
+          <h2 id="month-title">November 2026</h2>
+          <div class="month-nav">
+            <button class="pill-btn" id="month-today" type="button">Today</button>
+            <button class="round-btn" id="month-prev" type="button" aria-label="Previous month">‹</button>
+            <button class="round-btn" id="month-next" type="button" aria-label="Next month">›</button>
+          </div>
+        </header>
+        <div class="weekdays" id="weekdays"></div>
+        <div class="month-grid" id="month-grid"></div>
+      </div>
+      <aside class="day-detail">
+        <header class="day-head">
+          <div>
+            <p class="day-dow" id="day-dow"></p>
+            <h3 class="day-date" id="day-date"></h3>
+          </div>
+          <button class="round-btn close" id="month-close" type="button" aria-label="Close month view">×</button>
+        </header>
+        <ol class="events day-events" id="day-events"></ol>
+      </aside>
+    </section>
+  </div>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
